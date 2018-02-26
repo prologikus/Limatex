@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Limatex</string>
+    <string name="logo">Logo</string>
+    <string name="limatex">LIMATEX</string>
+    <string name="textP">Pizza</string>
+    <string name="textP2">Proaspat pregatite</string>
+    <string name="textP3">Proaspat pregatite</string>
+    <string name="textM">Meniuri</string>
+    <string name="textM2">Perfect combinate</string>
+    <string name="textM3">Perfect combinate</string>
+    <string name="textB">Bauturi</string>
+    <string name="textB2">Racoritoare</string>
+    <string name="textB3">Racoritoare</string>
+    <string name="textS">Sandwich-uri</string>
+    <string name="textS2">Bine impaturite</string>
+    <string name="textS3">Bine impaturite</string>
+    <string name="textSa">Salate</string>
+    <string name="textSa2">Asortate</string>
+    <string name="textSa3">Asortate</string>
+    <string name="textA">Alte preparate</string>
+    <string name="textA2">Cu detoate</string>
+    <string name="textA3">Cu detoate</string>
+    </resources>
