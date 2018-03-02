@@ -20,4 +20,5 @@
     <string name="textA">Alte preparate</string>
     <string name="textA2">Cu detoate</string>
     <string name="textA3">Cu detoate</string>
-    </resources>
+    <string name="alege_categoria">Alege Categoria</string>
+</resources>

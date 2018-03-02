@@ -6,6 +6,7 @@ import android.app.LauncherActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.graphics.Point;
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -13,19 +14,24 @@ import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Display;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewAnimationUtils;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class home extends AppCompatActivity {
@@ -35,12 +41,16 @@ public class home extends AppCompatActivity {
     RelativeLayout home;
     RelativeLayout splash;
     ImageView logo;
+    android.support.v7.widget.Toolbar myToolbar;
     //  FloatingActionButton shopButton;
-    boolean homeOpen = false;
+
+    String thisScreen = "Splash";
+
 
     //recicler for categories
     private RecyclerView mRecyclerView;
     private MyRecyclerViewAdapter adapter;
+    private MyRecyclerViewAdapterItems adapter2;
 
 
     @Override
@@ -59,14 +69,12 @@ public class home extends AppCompatActivity {
         //add support for Recicler ListView
         mRecyclerView = findViewById(R.id.RecyclerView);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        mRecyclerView.setHasFixedSize(true);
 
         //add support for toolbar Menu
-        //Toolbar myMenu = findViewById(R.id.menu);
-        //setSupportActionBar(myMenu);
+        myToolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(myToolbar);
 
-        //set default layout
-        home.setVisibility(View.VISIBLE);
-        splash.setVisibility(View.VISIBLE);
 
         //Load LOGO image to splash screen immediately
         logo = findViewById(R.id.Logo);
@@ -75,6 +83,10 @@ public class home extends AppCompatActivity {
         Picasso.with(context).load(idLogo)
                 .noPlaceholder()
                 .into(logo);
+
+        // add dividers to RecyclerView
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(mRecyclerView.getContext(), DividerItemDecoration.VERTICAL);
+        mRecyclerView.addItemDecoration(dividerItemDecoration);
 
         //Create Food Categories
         createListView();
@@ -89,14 +101,109 @@ public class home extends AppCompatActivity {
 
     }
 
-    public void showC() {
-        //   Intent intent = new Intent(getApplicationContext(), categ.class);
-        //   startActivity(intent);
+
+    public void CreateItemView(String item_name) {
+        //save the screen name for back button
+        thisScreen = "Items";
+
+        //Get all the items from the selected Category
+        int id = this.getResources().getIdentifier(item_name, "array", this.getPackageName());
+        List<String> Lines = Arrays.asList(getResources().getStringArray(id));
+
+        //crate a list for RecyclerView adapter
+        ArrayList<CategoriesItems> categoriesList = new ArrayList<>();
+
+        for (int i = 0; i < Lines.size(); i++) {
+            //extract the strings
+            //String item_name_ex = Lines.get(i);
+            String item_desc_ex = Lines.get(i + 1);
+            String item_ph_ex = Lines.get(i + 2);
+            //String item_price = Lines.get(i + 2);
+
+            String item_name_ex = "Pizza Casei";
+           // String item_desc_ex = "Descriere";
+           // String item_ph_ex = "pizza1";
+            String item_price = "10 Lei";
+
+
+            //extract the image from resources
+            int idd = this.getResources().getIdentifier(item_ph_ex, "drawable", this.getPackageName());
+
+            // add item to category list
+            CategoriesItems temp = new CategoriesItems(item_name_ex, item_desc_ex, idd, item_price,0);
+            categoriesList.add(temp);
+
+
+            i++; //jump over the description
+            i++; //jump over the icon
+            i++; //jump over the icon
+        }
+
+        //Register the adapter + item click ADAPTER 2
+        adapter2 = new MyRecyclerViewAdapterItems(home.this, categoriesList);
+        mRecyclerView.setAdapter(adapter2);
+
+        /*
+        adapter2.setOnItemClickListener(new OnItemClickListenerItems() {
+            @Override
+            public void onItemClick(CategoriesItems item) {
+                //Create the new list
+                final String sel_item_name = item.getTitle();
+
+
+            }
+        });
+
+        */
+
+        //show the Search
+
+
+        //show the toolbar
+        myToolbar.setVisibility(View.VISIBLE);
+        myToolbar.setTitle(item_name);
+        myToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                go_back();
+            }
+        });
+
+
+    }
+
+    public void go_back() {
+
+        switch (thisScreen) {
+            case "Categ":
+                //exit application
+                super.onBackPressed();
+                break;
+            case "Items":
+                //Create/going back to Food Categories
+                createListView();
+                break;
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        //Listen to system back button and redirect it
+        go_back();
+
     }
 
     public void createListView() {
+        //save the screen name for back button
+        thisScreen = "Categ";
 
-        //  Resources res = getResources();
+        //set default layout
+        home.setVisibility(View.VISIBLE);
+        splash.setVisibility(View.GONE);
+
+        //hide the toolbar for the category list
+        myToolbar.setVisibility(View.GONE);
+
 
         int id1 = this.getResources().getIdentifier("slide1", "drawable", this.getPackageName());
         int id2 = this.getResources().getIdentifier("slide2", "drawable", this.getPackageName());
@@ -120,53 +227,28 @@ public class home extends AppCompatActivity {
         categoriesList.add(Salate);
         categoriesList.add(Altele);
 
-        //CategoriesListAdaptor adapter = new CategoriesListAdaptor(this,R.layout.listclayout,categoriesList);
-
-        //  adapter = new CategoriesListAdaptor(this,R.layout.listclayout,categoriesList);
 
         adapter = new MyRecyclerViewAdapter(home.this, categoriesList);
         mRecyclerView.setAdapter(adapter);
+
 
         adapter.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(Categories item) {
 
-
-               // Toast.makeText(home.this, item.getTitle(), Toast.LENGTH_LONG).show();
-
-                //get position of the clicked item from screen
-                int x = 0;
-                int y = 0;
-
-                int startRadius = (int) Math.hypot(home.getWidth(), home.getHeight());
-                int endRadius = 0;
-
-
-                Animator anim = ViewAnimationUtils.createCircularReveal(home, x, y, startRadius, endRadius);
-                anim.addListener(new AnimatorListenerAdapter() {
-                    @Override
-                    public void onAnimationEnd(Animator animation) {
-                        super.onAnimationEnd(animation);
-                        home.setVisibility(View.GONE);
-                    }
-                });
-                anim.setDuration(1500);
-                anim.start();
-
+                //Create the new list
+                final String sel_item_name = item.getTitle();
+                CreateItemView(sel_item_name);
 
             }
         });
-
-
-        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(mRecyclerView.getContext(), DividerItemDecoration.VERTICAL);
-        mRecyclerView.addItemDecoration(dividerItemDecoration);
 
 
     }
 
 
     public void showHome() {
-        if (homeOpen == false) {
+        if (thisScreen == "Splash") {
 
             //  int x = shopButton.getLeft() + (shopButton.getWidth() / 2);
             //  int y = shopButton.getTop() + (shopButton.getWidth() / 2);
@@ -188,9 +270,59 @@ public class home extends AppCompatActivity {
             anim.setDuration(1500);
             anim.start();
 
-            homeOpen = true;
         }
     }
+
+
+    //saved code for future
+
+/*
+                //RUN Animation with delay
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        //Animation
+                        int x = splash.getWidth() / 2;
+                        int y = splash.getHeight();
+
+                        int startRadius = (int) Math.hypot(home.getWidth(), home.getHeight());
+                        int endRadius = 0;
+
+
+                        Animator anim = ViewAnimationUtils.createCircularReveal(home, x, y, startRadius, endRadius);
+                        anim.addListener(new AnimatorListenerAdapter() {
+                            @Override
+                            public void onAnimationEnd(Animator animation) {
+                                super.onAnimationEnd(animation);
+                                //   home.setVisibility(View.GONE);
+                            }
+
+                        });
+                        anim.setDuration(1500);
+                        anim.start();
+                    }
+                }, 50);
+
+    public void showC() {
+        //   Intent intent = new Intent(getApplicationContext(), categ.class);
+        //   startActivity(intent);
+    }
+
+
+    int lastTouchX;
+    int lastTouchY;
+    public boolean onTouchEvent(MotionEvent e) {
+        switch (e.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                Toast.makeText(home.this, "Pressed at x:" + e.getX() + " and y:" + e.getY(), Toast.LENGTH_LONG).show();
+                // register last touch if finger is down on the screen
+                lastTouchX = (int) e.getX();
+                lastTouchY = (int) e.getY();
+                break;
+        }
+        return true;
+    }
+    */
 
 
 }

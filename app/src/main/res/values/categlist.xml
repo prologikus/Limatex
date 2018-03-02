@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+        <string-array name="Pizza">
+            <item>Pizza Casei</item>
+            <item>Cascaval, parmezan, salam, sunca, sos de rosii, mozarella</item>
+            <item>pizza1</item>
+            <item>13 lei</item>
+            <item>Pizza Vegetariama</item>
+            <item>Rosii, Branza, Cascaval, Halat, Maieu</item>
+            <item>pizza2</item>
+            <item>16 lei</item>
+        </string-array>
+
+        <string-array name="Bauturi">
+            <item>Cola</item>
+            <item> </item>
+            <item>pizza1</item>
+            <item>Pepsi</item>
+            <item> </item>
+            <item>pizza1</item>
+        </string-array>
+
+
+</resources>

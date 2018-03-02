@@ -12,4 +12,5 @@
     //TEST COLORS
     <color name="ColorRed">#ff0000</color>
     <color name="ColorBlack">#000000</color>
+    <color name="ColorWhite">#ffffff</color>
 </resources>
