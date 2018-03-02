@@ -9,6 +9,7 @@ import android.content.res.Resources;
 import android.graphics.Point;
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
@@ -42,7 +43,7 @@ public class home extends AppCompatActivity {
     RelativeLayout splash;
     ImageView logo;
     android.support.v7.widget.Toolbar myToolbar;
-    //  FloatingActionButton shopButton;
+    FloatingActionButton shopButton;
 
     String thisScreen = "Splash";
 
@@ -64,7 +65,7 @@ public class home extends AppCompatActivity {
         splash = findViewById(R.id.Splash);
 
         //add support for buttons
-        //shopButton = findViewById(R.id.shopButton);
+        shopButton = findViewById(R.id.shopButton);
 
         //add support for Recicler ListView
         mRecyclerView = findViewById(R.id.RecyclerView);
@@ -115,22 +116,22 @@ public class home extends AppCompatActivity {
 
         for (int i = 0; i < Lines.size(); i++) {
             //extract the strings
-            //String item_name_ex = Lines.get(i);
+            String item_name_ex = Lines.get(i);
             String item_desc_ex = Lines.get(i + 1);
             String item_ph_ex = Lines.get(i + 2);
-            //String item_price = Lines.get(i + 2);
+            String item_price = Lines.get(i + 3);
 
-            String item_name_ex = "Pizza Casei";
-           // String item_desc_ex = "Descriere";
-           // String item_ph_ex = "pizza1";
-            String item_price = "10 Lei";
+            // String item_name_ex = "Pizza Casei";
+            // String item_desc_ex = "Descriere";
+            // String item_ph_ex = "pizza1";
+            //  String item_price = "10 Lei";
 
 
             //extract the image from resources
             int idd = this.getResources().getIdentifier(item_ph_ex, "drawable", this.getPackageName());
 
             // add item to category list
-            CategoriesItems temp = new CategoriesItems(item_name_ex, item_desc_ex, idd, item_price,0);
+            CategoriesItems temp = new CategoriesItems(item_name_ex, item_desc_ex, idd, item_price, 0);
             categoriesList.add(temp);
 
 
@@ -158,8 +159,11 @@ public class home extends AppCompatActivity {
 
         //show the Search
 
+        //show the shopButton
+        shopButton.setVisibility(View.VISIBLE);
 
         //show the toolbar
+        //search function in toolbar coming soon
         myToolbar.setVisibility(View.VISIBLE);
         myToolbar.setTitle(item_name);
         myToolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -199,10 +203,12 @@ public class home extends AppCompatActivity {
 
         //set default layout
         home.setVisibility(View.VISIBLE);
-        splash.setVisibility(View.GONE);
 
         //hide the toolbar for the category list
         myToolbar.setVisibility(View.GONE);
+
+        //hide the shopButton
+        shopButton.setVisibility(View.GONE);
 
 
         int id1 = this.getResources().getIdentifier("slide1", "drawable", this.getPackageName());
@@ -248,7 +254,9 @@ public class home extends AppCompatActivity {
 
 
     public void showHome() {
-        if (thisScreen == "Splash") {
+
+        home.setVisibility(View.VISIBLE);
+        splash.setVisibility(View.VISIBLE);
 
             //  int x = shopButton.getLeft() + (shopButton.getWidth() / 2);
             //  int y = shopButton.getTop() + (shopButton.getWidth() / 2);
@@ -270,7 +278,6 @@ public class home extends AppCompatActivity {
             anim.setDuration(1500);
             anim.start();
 
-        }
     }
 
 

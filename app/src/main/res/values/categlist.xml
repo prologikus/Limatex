@@ -5,10 +5,32 @@
             <item>Cascaval, parmezan, salam, sunca, sos de rosii, mozarella</item>
             <item>pizza1</item>
             <item>13 lei</item>
+
             <item>Pizza Vegetariama</item>
             <item>Rosii, Branza, Cascaval, Halat, Maieu</item>
             <item>pizza2</item>
             <item>16 lei</item>
+
+            <item>Pizza Mojo</item>
+            <item>Parmezan, salam, sunca, sos de rosii, mozarella</item>
+            <item>pizza3</item>
+            <item>17 lei</item>
+
+            <item>Pizza Buna</item>
+            <item>Rosii, Branza, Cascaval, Halat, Maieu</item>
+            <item>pizza4</item>
+            <item>16 lei</item>
+
+            <item>Pizza Taraneasca</item>
+            <item>Cascaval, parmezan, salam, sunca, sos de rosii, mozarella</item>
+            <item>pizza1</item>
+            <item>15 lei</item>
+
+            <item>Pizza Aurie</item>
+            <item>Rosii, Branza, Cascaval, Halat, Maieu</item>
+            <item>pizza2</item>
+            <item>16 lei</item>
+
         </string-array>
 
         <string-array name="Bauturi">
