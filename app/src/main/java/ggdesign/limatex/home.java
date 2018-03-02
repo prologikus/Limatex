@@ -37,6 +37,21 @@ import java.util.List;
 
 public class home extends AppCompatActivity {
 
+    // TODO LIST:
+    /*
+     - add animation between categories and items
+     - add animation when adding to shopping cart
+     - redesign categories
+     - functional shopping cart
+     - search function for items
+     - connect to basedata
+     - floating window of shopping list
+     - bubble with card count
+     - floating shopping button visible in categories when something in cart
+    */
+
+
+
     //declare layouts
     RelativeLayout all;
     RelativeLayout home;
