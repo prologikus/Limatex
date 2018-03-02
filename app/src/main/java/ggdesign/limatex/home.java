@@ -113,7 +113,7 @@ public class home extends AppCompatActivity {
             public void run() {
                 showHome();
             }
-        }, 1000);
+        }, 1600);
 
     }
 
@@ -290,7 +290,7 @@ public class home extends AppCompatActivity {
                     splash.setVisibility(View.GONE);
                 }
             });
-            anim.setDuration(1500);
+        anim.setDuration(1800);
             anim.start();
 
     }

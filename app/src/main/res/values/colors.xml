@@ -1,16 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#e0d9d7</color>
-    <color name="colorAccent">#978580</color>
-    <color name="colorPrimaryDark">#978580</color>
+    <color name="colorPrimary">#bf360c</color>
+    <color name="colorPrimaryLight">#f9683a</color>
+    <color name="colorPrimaryDark">#870000</color>
+    <color name="colorPrimaryText">#ffffff</color>
 
-    //CUSTOM COLORS
-    <color name="colorBrown">#978580</color>
-    <color name="colorBrownL">#BEAEA9</color>
-    <color name="ColorBrownD">#705E59</color>
-    <color name="ColorWhiteB">#e0d9d7</color>
-    //TEST COLORS
-    <color name="ColorRed">#ff0000</color>
-    <color name="ColorBlack">#000000</color>
-    <color name="ColorWhite">#ffffff</color>
+    <color name="colorSecondary">#fafafa</color>
+    <color name="colorSecondaryLight">#ffffff</color>
+    <color name="colorSecondaryDark">#c7c7c7</color>
+    <color name="colorSecondaryText">#000000</color>
+
+    <!--
+        <color name="ColorBlack">#000000</color>
+        <color name="ColorWhite">#ffffff</color>
+        <color name="ColorRed">#ff0000</color>
+
+        //CUSTOM COLORS
+
+       <color name="colorBrown">#ffffff</color>
+        <color name="colorBrownL">#BEAEA9</color>
+        <color name="ColorBrownD">#705E59</color>
+        <color name="ColorWhiteB">#e0d9d7</color>
+        -->
+
+
 </resources>
