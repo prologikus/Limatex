@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    xmlns:swrv="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/all"
     android:layout_width="match_parent"
@@ -8,6 +10,200 @@
     android:background="@color/colorPrimaryDark"
     tools:context="ggdesign.limatex.home">
 
+    <!--SHOPPING CART-->
+    <RelativeLayout
+        android:id="@+id/Shop"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@color/colorSecondaryLight"
+        android:visibility="visible">
+
+        <RelativeLayout
+            android:id="@+id/fake_toolbar"
+            android:layout_width="fill_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorSecondary">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="30dp"
+                android:text="Cos de cumparaturi"
+                android:textSize="18dp" />
+        </RelativeLayout>
+
+
+        <TextView
+            android:id="@+id/phone_label"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/fake_toolbar"
+            android:layout_marginTop="70dp"
+            android:fontFamily="sans-serif"
+            android:paddingStart="40dp"
+            android:text="Numar telefon:"
+            android:textAlignment="textStart"
+            android:textColor="@color/colorSecondaryDark"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/phone_text"
+            android:layout_width="fill_parent"
+            android:layout_height="45dp"
+            android:layout_alignTop="@id/phone_label"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginTop="26dp"
+            android:ems="10"
+            android:fontFamily="sans-serif"
+            android:hint="07232"
+            android:inputType="numberDecimal"
+            android:labelFor="@id/phone_label"
+            android:paddingEnd="20dp"
+            android:paddingStart="40dp"
+            android:textColor="@color/colorSecondaryText"
+            android:textSize="18sp" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignTop="@id/phone_label"
+            android:layout_marginEnd="40dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="36dp"
+            android:alpha="0.7"
+            android:scaleType="centerCrop"
+            android:src="@drawable/phone_icon" />
+
+        <TextView
+            android:id="@+id/name_label"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/phone_text"
+            android:layout_marginTop="60dp"
+            android:fontFamily="sans-serif"
+            android:paddingStart="40dp"
+            android:text="Numele tau:"
+            android:textAlignment="textStart"
+            android:textColor="@color/colorSecondaryDark"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/name_text"
+            android:layout_width="fill_parent"
+            android:layout_height="45dp"
+            android:layout_alignTop="@id/name_label"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginTop="26dp"
+            android:ems="10"
+            android:fontFamily="sans-serif"
+            android:hint="Vasile Ion"
+            android:inputType="textPersonName"
+            android:labelFor="@id/name_label"
+            android:paddingEnd="20dp"
+            android:paddingStart="40dp"
+            android:textColor="@color/colorSecondaryText"
+            android:textSize="18sp" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignTop="@id/name_label"
+            android:layout_marginEnd="40dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="36dp"
+            android:alpha="0.7"
+            android:scaleType="centerCrop"
+            android:src="@drawable/name_icon" />
+
+        <TextView
+            android:id="@+id/home_label"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/name_text"
+            android:layout_marginTop="60dp"
+            android:fontFamily="sans-serif"
+            android:paddingStart="40dp"
+            android:text="Orasul, str, nr, *bl, *sc, *ap :"
+            android:textAlignment="textStart"
+            android:textColor="@color/colorSecondaryDark"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/home_text"
+            android:layout_width="fill_parent"
+            android:layout_height="75dp"
+            android:layout_alignTop="@id/home_label"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginTop="21dp"
+            android:ems="10"
+            android:fontFamily="sans-serif"
+            android:hint="Bolintin Vale, Str. Florilor"
+            android:inputType="textMultiLine"
+            android:labelFor="@id/home_label"
+            android:lines="3"
+            android:paddingEnd="20dp"
+            android:paddingStart="40dp"
+            android:textColor="@color/colorSecondaryText"
+            android:textSize="18sp" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignTop="@id/home_label"
+            android:layout_marginEnd="40dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="51dp"
+            android:alpha="0.7"
+            android:scaleType="centerCrop"
+            android:src="@drawable/home_icon" />
+
+        <Button
+            android:id="@+id/send"
+            android:layout_width="fill_parent"
+            android:layout_height="63dp"
+            android:layout_alignTop="@id/home_text"
+            android:layout_marginTop="85dp"
+            android:background="@drawable/ripple_red_button"
+            android:text="Trimite comanda !"
+            android:textAllCaps="false"
+            android:textColor="@color/colorPrimaryText"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/mRecyclerView2"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:layout_alignTop="@id/home_text"
+            android:layout_marginTop="150dp"
+            android:padding="15dp"
+            android:scrollbars="vertical" />
+
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginBottom="20dp"
+            android:layout_marginEnd="20dp"
+            android:src="@drawable/back_arrow"
+            app:backgroundTint="@color/colorPrimaryDark"
+            app:elevation="4dp"
+            app:fabSize="normal" />
+
+
+    </RelativeLayout>
+
+    <!--CATEGORIES & ITEMS-->
     <RelativeLayout
         android:id="@+id/Home"
         android:layout_width="fill_parent"
@@ -15,23 +211,9 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:background="@color/colorSecondary"
-        android:visibility="visible">
+        android:visibility="gone">
 
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/shopButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginBottom="15dp"
-            android:layout_marginRight="15dp"
-            android:clickable="true"
-            android:visibility="visible"
-            app:backgroundTint="@color/colorPrimaryDark"
-            app:elevation="5dp"
-            app:fabSize="normal"
-            app:srcCompat="@drawable/shop_ic" />
-
+        <!--Toolbar-->
         <RelativeLayout
             android:id="@+id/miniToolbar"
             android:layout_width="match_parent"
@@ -40,13 +222,15 @@
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
-                android:layout_width="match_parent"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
                 android:background="@color/colorPrimary"
                 android:elevation="4dp"
                 android:minHeight="?attr/actionBarSize"
                 android:theme="?attr/actionBarTheme"
-                android:visibility="gone"
+                android:visibility="visible"
                 app:navigationIcon="?attr/homeAsUpIndicator" />
 
             <TextView
@@ -57,14 +241,13 @@
                 android:layout_centerVertical="true"
                 android:layout_marginStart="21dp"
                 android:text="@string/alege_categoria"
+                android:textAlignment="center"
                 android:textColor="@color/colorPrimaryText"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textSize="20sp" />
 
         </RelativeLayout>
 
-
-
+        <!--Items-->
         <android.support.v7.widget.RecyclerView
             android:id="@+id/RecyclerView"
             android:layout_width="match_parent"
@@ -72,12 +255,73 @@
             android:layout_alignParentStart="true"
             android:layout_below="@id/miniToolbar"
             android:background="@color/colorSecondary"
-            android:scrollbars="vertical" >
+            android:scrollbars="vertical">
 
         </android.support.v7.widget.RecyclerView>
 
+        <!--Shopping button + Count Dot-->
+        <RelativeLayout
+            android:id="@+id/shopFloat"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginBottom="13dp"
+            android:layout_marginEnd="13dp">
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/shopButton"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_centerInParent="true"
+                android:clickable="true"
+                android:focusable="true"
+                android:visibility="visible"
+                app:backgroundTint="@color/colorPrimaryDark"
+                app:elevation="3dp"
+                app:fabSize="normal"
+                app:srcCompat="@drawable/shop_ic" />
+
+            <RelativeLayout
+                android:id="@+id/shopCountBg"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="3dp"
+                android:layout_marginTop="3dp"
+                android:clickable="false"
+                android:elevation="5dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:layout_width="23dp"
+                    android:layout_height="23dp"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/circle_count_dot"
+                    android:clickable="false"
+                    android:elevation="5dp" />
+
+                <TextView
+                    android:id="@+id/shopCount"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="3dp"
+                    android:clickable="false"
+                    android:elevation="6dp"
+                    android:text="99"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorPrimaryText"
+                    android:textSize="12sp" />
+
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+
     </RelativeLayout>
 
+    <!--LOGO SPLASH-->
     <RelativeLayout
         android:id="@+id/Splash"
         android:layout_width="fill_parent"
@@ -85,7 +329,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:background="@color/colorPrimaryDark"
-        android:visibility="visible">
+        android:visibility="gone">
 
         <ImageView
             android:id="@+id/Logo"
@@ -94,10 +338,9 @@
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:contentDescription="@string/logo"
-            android:scaleType="fitCenter"/>
+            android:scaleType="fitCenter" />
 
 
     </RelativeLayout>
-
 
 </RelativeLayout>

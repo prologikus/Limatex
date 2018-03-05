@@ -6,5 +6,5 @@ package ggdesign.limatex;
 
 
 public interface OnItemClickListenerItems {
-    void onItemClick(CategoriesItems item);
+    void onItemClick(SubItems item);
 }

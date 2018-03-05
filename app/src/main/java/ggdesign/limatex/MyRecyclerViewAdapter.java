@@ -47,6 +47,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
         //  if (!TextUtils.isEmpty(Categories.getImgURL())) {
         Picasso.with(mContext).load(Categories.getImgURL())
                 .fit()
+                .centerCrop()
                 .into(customViewHolder.imageView);
         // }
 
@@ -60,10 +61,11 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
                 onItemClickListener.onItemClick(Categories);
             }
         };
-        customViewHolder.imageView.setOnClickListener(listener);
-        customViewHolder.textView.setOnClickListener(listener);
-        customViewHolder.textView2.setOnClickListener(listener);
-        customViewHolder.bglayout.setOnClickListener(listener);
+        //  customViewHolder.imageView.setOnClickListener(listener);
+        //  customViewHolder.textView.setOnClickListener(listener);
+        // customViewHolder.textView2.setOnClickListener(listener);
+        // customViewHolder.bglayout.setOnClickListener(listener);
+        customViewHolder.rippleLayout.setOnClickListener(listener);
 
     }
 
@@ -73,23 +75,6 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
         return (null != CategoriesList ? CategoriesList.size() : 0);
     }
 
-
-    class CustomViewHolder extends RecyclerView.ViewHolder {
-        protected ImageView imageView;
-        protected TextView textView;
-        protected TextView textView2;
-        protected RelativeLayout bglayout;
-
-        public CustomViewHolder(View view) {
-            super(view);
-            this.imageView = view.findViewById(R.id.image);
-            this.textView = view.findViewById(R.id.text);
-            this.textView2 = view.findViewById(R.id.text2);
-            this.bglayout = view.findViewById(R.id.bglayout);
-        }
-    }
-
-
     //SUPPORT FOR ON CLICK LISENER
     public OnItemClickListener getOnItemClickListener() {
         return onItemClickListener;
@@ -97,6 +82,23 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
 
     public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
         this.onItemClickListener = onItemClickListener;
+    }
+
+    class CustomViewHolder extends RecyclerView.ViewHolder {
+        protected ImageView imageView;
+        protected TextView textView;
+        protected TextView textView2;
+        protected RelativeLayout bglayout;
+        protected RelativeLayout rippleLayout;
+
+        public CustomViewHolder(View view) {
+            super(view);
+            this.imageView = view.findViewById(R.id.image);
+            this.textView = view.findViewById(R.id.text);
+            this.textView2 = view.findViewById(R.id.text2);
+            this.bglayout = view.findViewById(R.id.bglayout);
+            this.rippleLayout = view.findViewById(R.id.rippleLayout);
+        }
     }
 
 

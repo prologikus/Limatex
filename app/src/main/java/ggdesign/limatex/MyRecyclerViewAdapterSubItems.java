@@ -1,7 +1,6 @@
 package ggdesign.limatex;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
 import android.view.LayoutInflater;
@@ -10,8 +9,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.travijuu.numberpicker.library.NumberPicker;
 
+import com.github.angads25.toggle.LabeledSwitch;
+
+import com.github.angads25.toggle.interfaces.OnToggledListener;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -20,13 +21,13 @@ import java.util.List;
  * Created by meg3o on 2/26/2018.
  */
 
-public class MyRecyclerViewAdapterItems extends RecyclerView.Adapter<MyRecyclerViewAdapterItems.CustomViewHolder> {
-    private List<CategoriesItems> CategoriesList;
+public class MyRecyclerViewAdapterSubItems extends RecyclerView.Adapter<MyRecyclerViewAdapterSubItems.CustomViewHolder> {
+    private List<SubItems> CategoriesList;
     private Context mContext;
-  //  private OnItemClickListenerItems onItemClickListenerItems;
+    //  private OnItemClickListenerItems onItemClickListenerItems;
 
 
-    public MyRecyclerViewAdapterItems(Context context, List<CategoriesItems> CategoriesList) {
+    public MyRecyclerViewAdapterSubItems(Context context, List<SubItems> CategoriesList) {
         this.CategoriesList = CategoriesList;
         this.mContext = context;
     }
@@ -41,27 +42,39 @@ public class MyRecyclerViewAdapterItems extends RecyclerView.Adapter<MyRecyclerV
 
 
     @Override
-    public void onBindViewHolder(CustomViewHolder customViewHolder, int i) {
-        final CategoriesItems CategoriesItems = CategoriesList.get(i);
+    public void onBindViewHolder(final CustomViewHolder customViewHolder, int i) {
+        final SubItems SubItems = CategoriesList.get(i);
 
         //Render image using Picasso library
-        //  if (!TextUtils.isEmpty(CategoriesItems.getImgURL())) {
-        Picasso.with(mContext).load(CategoriesItems.getImgURL())
+        //  if (!TextUtils.isEmpty(SubItems.getImgURL())) {
+        Picasso.with(mContext).load(SubItems.getImgURL())
                 .fit()
+                .centerCrop()
                 .into(customViewHolder.imageView);
         // }
 
         //Setting text view title
-        customViewHolder.textView.setText(Html.fromHtml(CategoriesItems.getTitle()));
-        customViewHolder.textView2.setText(Html.fromHtml(CategoriesItems.getSubtitle()));
-        customViewHolder.price.setText(Html.fromHtml(CategoriesItems.getPrice()));
+        customViewHolder.textView.setText(Html.fromHtml(SubItems.getTitle()));
+        customViewHolder.textView2.setText(Html.fromHtml(SubItems.getSubtitle()));
+        customViewHolder.price.setText(Html.fromHtml(SubItems.getPrice()));
 
+        customViewHolder.sizeSwitch.setOnToggledListener(new OnToggledListener() {
+            @Override
+            public void onSwitched(LabeledSwitch labeledSwitch, boolean isOn) {
+                // Implement your switching logic here
+                if (isOn) {
+                    customViewHolder.price.setText(Html.fromHtml(SubItems.getPriceB()));
+                } else {
+                    customViewHolder.price.setText(Html.fromHtml(SubItems.getPrice()));
+                }
+            }
+        });
 
         /*
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onItemClickListenerItems.onItemClick(CategoriesItems);
+                onItemClickListenerItems.onItemClick(SubItems);
             }
         };
         customViewHolder.imageView.setOnClickListener(listener);
@@ -86,7 +99,7 @@ public class MyRecyclerViewAdapterItems extends RecyclerView.Adapter<MyRecyclerV
         protected TextView textView;
         protected TextView textView2;
         protected TextView price;
-        protected com.travijuu.numberpicker.library.NumberPicker nrpick;
+        protected com.github.angads25.toggle.LabeledSwitch sizeSwitch;
         protected RelativeLayout bglayout;
 
         public CustomViewHolder(View view) {
@@ -94,10 +107,9 @@ public class MyRecyclerViewAdapterItems extends RecyclerView.Adapter<MyRecyclerV
             this.imageView = view.findViewById(R.id.image);
             this.textView = view.findViewById(R.id.text);
             this.textView2 = view.findViewById(R.id.text2);
-           this.nrpick = view.findViewById(R.id.numberPicker);
+            this.sizeSwitch = view.findViewById(R.id.switchSize);
             this.price = view.findViewById(R.id.price);
             this.bglayout = view.findViewById(R.id.bglayout);
-            nrpick.setValue(0);
 
         }
     }
@@ -112,7 +124,6 @@ public class MyRecyclerViewAdapterItems extends RecyclerView.Adapter<MyRecyclerV
         this.onItemClickListenerItems = onItemClickListenerItems;
     }
 */
-
 
 
 }

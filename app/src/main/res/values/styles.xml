@@ -16,8 +16,13 @@
         <item name="android:textColorPrimary">@color/colorPrimaryText</item>
 
         <item name="android:fontFamily">@font/ralewaymedium</item>
-        <item name="fontFamily">@font/ralewaymedium
-        </item> <!-- target android sdk versions < 26 and > 14 if theme other than AppCompat -->
+        <item name="fontFamily">@font/ralewaymedium</item>
+
+
+        <item name="colorControlHighlight">@color/colorSecondaryDark</item>
+
+
+        <!-- target android sdk versions < 26 and > 14 if theme other than AppCompat -->
 
 
         <!--
@@ -30,6 +35,10 @@
 
     </style>
 
+    <style name="menu_labels_style">
+        <item name="android:background">@drawable/fab_label_background</item>
+        <item name="android:textColor">@color/colorSecondary</item>
+    </style>
 
     <style name="CustomActionBarTheme" parent="Base.ThemeOverlay.AppCompat.Dark"></style>
 

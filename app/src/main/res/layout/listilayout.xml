@@ -1,10 +1,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:numberpicker="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/bglayout"
     android:layout_width="match_parent"
     android:layout_height="250dp"
-    android:background="@color/colorSecondary"
     android:orientation="vertical">
 
     <ImageButton
@@ -16,9 +15,14 @@
         android:background="@color/colorSecondary"
         android:clickable="true"
         android:elevation="1dp"
-        android:focusable="true"
-        android:scaleType="centerCrop"
-        android:src="@drawable/pizza1" />
+        android:focusable="true" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="250dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/bottom_gradient" />
 
 
     <TextView
@@ -49,25 +53,25 @@
 
     <RelativeLayout
         android:id="@+id/textbg"
-        android:layout_width="80dp"
+        android:layout_width="100dp"
         android:layout_height="38dp"
         android:layout_alignParentEnd="true"
-        android:layout_marginEnd="20dp"
+        android:layout_marginEnd="23dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/pricebg"
-        android:elevation="7dp">
+        android:elevation="4dp">
 
     </RelativeLayout>
 
 
     <TextView
         android:id="@+id/price"
-        android:layout_width="80dp"
+        android:layout_width="100dp"
         android:layout_height="38dp"
         android:layout_alignParentEnd="true"
-        android:layout_marginEnd="20dp"
+        android:layout_marginEnd="23dp"
         android:layout_marginTop="12dp"
-        android:elevation="7dp"
+        android:elevation="4dp"
         android:text="TextView"
         android:textAlignment="center"
         android:textAllCaps="false"
@@ -75,18 +79,24 @@
         android:textSize="24sp"
         tools:text="10 Lei" />
 
-
-    <com.travijuu.numberpicker.library.NumberPicker
-        android:id="@+id/numberPicker"
-        android:layout_width="wrap_content"
+    <com.github.angads25.toggle.LabeledSwitch
+        android:id="@+id/switchSize"
+        android:layout_width="100dp"
         android:layout_height="40dp"
         android:layout_alignParentEnd="true"
         android:layout_below="@id/textbg"
-        android:layout_marginEnd="10dp"
+        android:layout_marginEnd="23dp"
         android:layout_marginStart="15dp"
         android:layout_marginTop="10dp"
-        android:elevation="7dp"
-        numberpicker:custom_layout="@layout/number_picker_layout" />
+        android:elevation="4dp"
+        android:textColor="@color/colorPrimaryText"
+        android:textSize="18sp"
+        app:colorBorder="@color/colorPrimary"
+        app:colorOff="@color/colorSecondary"
+        app:colorOn="@color/colorPrimary"
+        app:on="false"
+        app:textOff="mica"
+        app:textOn="MARE" />
 
 
 </RelativeLayout>
